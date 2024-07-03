@@ -1,6 +1,6 @@
-					<footer id="footer" class="site-footer card shadow-sm border-0">
-					<style>
-    /* 核心样式 */
+<footer id="footer" class="site-footer card shadow-sm border-0">
+		<style>
+    /* 备案样式 */
     .github-badge {
         display: inline-block;
         border-radius: 4px;

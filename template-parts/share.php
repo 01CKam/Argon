@@ -6,11 +6,7 @@
 					<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
 				</button>
 			</a>
-			<!-- <a target="_blank" class="no-pjax icon-douban" tooltip="<?php _e('分享到豆瓣', 'argon'); ?>">
-				<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
-					<span aria-hidden="true">豆</span>
-				</button>
-			</a> -->
+		
 			<a target="_blank" class="no-pjax icon-qq" tooltip="<?php _e('分享到 QQ', 'argon'); ?>">
 				<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
 					<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
@@ -21,11 +17,7 @@
 					<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
 				</button>
 			</a>
-			<!-- <a target="_blank" class="no-pjax icon-weibo" tooltip="<?php _e('分享到微博', 'argon'); ?>">
-				<button class="btn btn-icon btn-warning">
-					<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
-				</button>
-			</a> -->
+		
 		<?php } if (get_option('argon_show_sharebtn') != 'domestic') { ?>
 	
 		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=<?php echo urlencode(
@@ -50,7 +42,7 @@ $_SERVER['HTTP_HOST']);?>&text=<?php echo urlencode(html_entity_decode(get_the_t
 	    title : '<?php echo addslashes(html_entity_decode(get_the_title())); ?>',
 	    description : '<?php echo addslashes(html_entity_decode(wp_trim_words(html_entity_decode(get_the_content()), 50)));?>',
 	    wechatQrcodeTitle : "<?php _e('分享到微信', 'argon');?>",
-	    wechatQrcodeHelper : '<?php _e('微信扫描二维码', 'argon');?>',
+	    wechatQrcodeHelper : '<?php _e('扫码在手机上阅读', 'argon');?>',
 	    source : '<?php global $post; echo get_permalink($post -> ID); ?>'
 	});
 	$("#share_show")[0].onclick = function(){
@@ -66,7 +58,7 @@ $_SERVER['HTTP_HOST']);?>&text=<?php echo urlencode(html_entity_decode(get_the_t
 		if (document.execCommand('copy')){
 			iziToast.show({
 				title: '<?php _e('链接已复制', 'argon');?>',
-				message: "<?php _e('链接已复制到剪贴板', 'argon');?>",
+				message: "<?php _e('快去分享给好朋友吧！', 'argon');?>",
 				class: 'shadow',
 				position: 'topRight',
 				backgroundColor: '#2dce89',

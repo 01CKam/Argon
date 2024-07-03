@@ -1,4 +1,28 @@
 <?php
+/*自定义区域*/
+/*评论显示站长头像*/
+if ( ! function_exists( 'get_cravatar_url' ) ) {
+    /**
+    *  把Gravatar头像服务替换为Cravatar
+    * @param string $url
+    * @return string
+    */
+    function get_cravatar_url( $url ) {
+        $sources = array(
+            'www.gravatar.com',
+            '0.gravatar.com',
+            '1.gravatar.com',
+            '2.gravatar.com',
+            'secure.gravatar.com',
+            'cn.gravatar.com'
+        );
+        return str_replace( $sources, 'cravatar.cn', $url );
+    }
+    add_filter( 'um_user_avatar_url_filter', 'get_cravatar_url', 1 );
+    add_filter( 'bp_gravatar_url', 'get_cravatar_url', 1 );
+    add_filter( 'get_avatar_url', 'get_cravatar_url', 1 );
+}
+/*自定义区域*/
 if (version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' )) {
 	echo "<div style='background: #5e72e4;color: #fff;font-size: 30px;padding: 50px 30px;position: fixed;width: 100%;left: 0;right: 0;bottom: 0;z-index: 2147483647;'>" . __("Argon 主题不支持 Wordpress 4.4 以下版本，请更新 Wordpress", 'argon') . "</div>";
 }
@@ -1085,7 +1109,7 @@ function argon_comment_format($comment, $args, $depth){
 				<div class="comment-name">
 					<div class="comment-author"><?php echo get_comment_author_link();?></div>
 					<?php if (user_can($comment -> user_id , "update_core")){
-						echo '<span class="badge badge-primary badge-admin">' . __('博主', 'argon') . '</span>';}
+						echo '<span class="badge badge-primary badge-admin">' . __('最帅之人', 'argon') . '</span>';}
 					?>
 					<?php echo get_comment_parent_info($comment); ?>
 					<?php if ($GLOBALS['argon_comment_options']['enable_pinning'] && get_comment_meta(get_comment_ID(), "pinned", true) == "true"){
@@ -1144,7 +1168,7 @@ function argon_comment_shuoshuo_preview_format($comment, $args, $depth){
 			<span class="shuoshuo-comment-item-title">
 				<?php echo get_comment_author_link();?>
 				<?php if( user_can($comment -> user_id , "update_core") ){
-					echo '<span class="badge badge-primary badge-admin">' . __('博主', 'argon') . '</span>';}
+					echo '<span class="badge badge-primary badge-admin">' . __('最帅之人', 'argon') . '</span>';}
 				?>
 				<?php if( $comment -> comment_approved == 0 ){
 					echo '<span class="badge badge-warning badge-unapproved">' . __('待审核', 'argon') . '</span>';}
